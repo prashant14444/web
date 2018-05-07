@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="/script/jquery.js"></script>
+	<title>Dashboard</title>
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/dashboard.css">
+</head>
+<body onload="load_data()">
+<div class="container-fluid" style="margin-left: 5px;margin-right: 5px;">
+	<div class="row">
+		<div class="col-md-3 sidenav" >
+			<img id="profilepic" class="profile_pic" src="" alt="profilepic">
+			<form method="post" id="change_profile_pic" class="form-inline" enctype="multipart/form-data">
+			    <label style="margin-top: 20px;">Change Pic</label><br>
+			    <input style="width: 75px;height: 35px;background-color: #111;border-color: #111;margin-left: 2px;padding: 0px;border-radius: 15px;" type="file" class="form-control" name="profile_img" accept="image/*">
+			    <button type="submit" class="btn btn-default" style="width: 75px;height: 35px;background-color: #E5F1FB;border-color: #111;margin-left: 2px;padding: 0px;border-radius: 15px;">Upload</button>
+			</form>
+			<a id="profile_name" href=""></a>
+			<a id="emailid" href="" style="word-wrap: break-word;"></a>
+			<a href="/settings">Settings </a>
+			<a href="update_profile">Edit Your Details</a>
+			<a href="/followers_list">My Followers</a>
+			<a href="/following_list">Following</a>
+			<!-- <a href="logout">LogOut</a> -->
+		</div>
+		<div class="col-md-9  jumbotron " style="padding-left: 23%; width: 100%; text-align: justify;">
+			<button onclick="logout()" type="button" style="float: right;" class="btn btn-primary">LogOut</button>
+			<span style="font-size: 50px;">Welocome</span>
+			<span class="container" style="width: 20%">
+			  <div class="progress">
+			    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:40%">
+			      40%
+			    </div>
+			  </div>
+			</span>
+			<div class="container">	
+				<span style="font-size: 20px;">Match Your Fit.</span>
+				<form id="search_in_dashboard">
+				     <label class="radio-inline"><input id="bride" type="radio" name="optradio" required>Bride</label>
+					<label class="radio-inline"><input id="groom" type="radio" name="optradio" required>Groom</label>
+					<label class="form-group form-inline" style="margin-left: 5px;" for="usr">
+						Age 
+						<input id="age_min" type="number" class="form-control" style="width: 60px;height: 25px;" id="usr" required>
+					</label>
+					<label class="form-group form-inline" style="margin-left: 5px;" for="usr">
+						B/W 
+						<input 
+					id="age_max" type="number" class="form-control" style="width: 60px;height: 25px;" id="usr" required>
+					</label>
+					<!-- select city from the list -->
+					<label class="form-group form-inline">City
+						<select class="custom-select" id="city" required>
+						    <option selected></option>
+						    <option value="Kanpur">Kanpur</option>
+						    <option value="Lucknow">Lucknow</option>
+						    <option value="Meerut">Meerut</option>
+						    <option value="Banaras">Banaras</option>
+						    <option value="Agra">Agra</option>
+						    <option value="Jhansi">Jhansi</option>
+						    <option value="Gorakhpur">Gorakhpur</option>
+						    <option value="Allahabad">Allahabad</option>
+						    <option value="Rampur">Rampur</option>
+						    <option value="Firozabad">Firozabad</option>
+						    <option value="Etwah">Etawah</option>
+						  </select>
+				    </label> 
+				    <label class="form-group form-inline">Religion
+				    	<select class="custom-select" id="religion" required>
+					    		<option selected></option>
+							    <option value="Hindu">Hindu</option>
+							    <option value="Muslim">Muslim</option>
+							    <option value="Christian">Christian</option>
+							    <option value="Sikh">Sikh</option>
+							    <option value="Judism">Judism</option>
+							    <option value="Jain">Jain</option>	
+						</select>			    	
+				    </label>
+				    <label class="form-group form-inline">Cast
+				    	<select class="custom-select" id="cast" required>
+					    		<option selected></option>
+					    		<option value="Lodha">Lodha</option>
+							    <option value="Agrawal">Agrawal</option>
+							    <option value="Gupta">Gupta</option>
+							    <option value="Saini">Saini</option>
+							    <option value="Ahir">Ahir</option>
+							    <option value="Rajpoot">Rajpoot</option>
+							    <option value="Brahmins">Brahmins</option>
+							    <option value="Sunar">Sunar</option>
+							    <option value="Dalit">Dalit</option>
+							    <option value="Gurjar">Gurjar</option>
+							    <option value="Jaat">Jaat</option>	
+						</select>			    	
+				    </label>
+				    <button type="submit" class="btn btn-primary">Get Result</button>  					
+				</form>			
+			</div>
+			<h2 >My Profile</h2>
+			<p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
+			<div id="dynamicParent" style="width:100%;">
+			<!-- dynamic output will be here -->
+			</div>	
+
+			<!-- paginition code starts here -->
+			<nav aria-label="Page navigation example">
+			  <ul class="pagination justify-content-center">
+			    <li class="page-item ">
+			      <a class="page-link" href="#" >Previous</a>
+			    </li>
+			    <li class="page-item"><a class="page-link" href="#">1</a></li>
+			    <li class="page-item"><a class="page-link" href="#">2</a></li>
+			    <li class="page-item"><a class="page-link" href="#">3</a></li>
+			    <li class="page-item">
+			      <a class="page-link" href="#">Next</a>
+			    </li>
+			  </ul>
+			</nav>
+			<!-- pagination code ends here -->
+		</div>
+	</div>
+</div>
+
+<!-- scripts are added here -->
+<script type="text/javascript" src="/script/get_json_of_dynamic_html.js"></script>
+  <script type="text/javascript" src="/script/dashboard.js"></script>
+  <script type="text/javascript" src="/script/logout.js"></script>
+
+<script type="text/javascript">
+$('#change_profile_pic').on('submit',function(event){
+   event.preventDefault();
+   var data =new FormData(this);
+   if($('input[name="profile_img"]')[0].files){
+   data.append('profile_img',$('input[name="profile_img"]')[0].files);
+   // console.log($('input[name="profile_img"]')[0].files);
+   }
+$.ajax({
+      type:'POST',
+      url:'/api/upload_profile_image',
+      data:data,
+      cache:false,
+      contentType:false,
+      processData:false,
+      success:function(result){
+          if(result.success=='1'){
+          	console.log(JSON.stringify(result))
+          	document.getElementById('profilepic').src="/public"+result.image;
+          	alert("Successfulily uploaded!");
+            } 
+           else if(result.success=='0'){
+           	alert("Failed!");
+           } 
+           else if(result.size=='large'){
+           	alert("Size Exceeded! Try Again");
+           }                
+        }
+    });  
+   });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="/script/jquery.js"></script>
+	<title>Settings</title>
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/dashboard.css">
+</head>
+<body>
+	<div class="container">
+		<div class="jumbotron" style="margin-left: 20%; margin-right: 20%">
+			<!-- <span style="font-size: 20px;"> Change Your Settings Here</span><br> -->
+			<button type="button" onclick=' window.location.href = "/dashboard" ' style="width: 25%;" class="btn btn-primary btn-block">GO Back</button><br><br>
+			<form class="form-group" id="settings_form">
+				<label> Who can see your Profile</label><br>
+				<label><input type="radio" id="nobody" name="profile_visibility"> Nobody</label><br>
+				<label><input type="radio" id="everyone" name="profile_visibility"> Everyone</label><br>
+				<label><input type="radio" id="my_followers" name="profile_visibility"> Only My Followers</label><br><br><br>
+				<label>Make Your Email Id Visible to Others</label><br>
+				<label><input name="email_visibilty" type="radio" id="Visibilty_yes">Yes</label>
+				<label><input name="email_visibilty" type="radio" id="Visibilty_no">No</label><br><br>
+				 <button type="submit" style="width: 25%;" class="btn btn-primary btn-block">Save & Continue</button>
+			</form>
+		</div>
+	</div>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('#settings_form').on('submit',function(event){
+				var data={};
+				console.log("Sttings function called.");
+				event.preventDefault();
+				if (document.getElementById('nobody').checked) {
+					data.profile_visibility='nobody';
+				}
+				else if (document.getElementById('everyone').checked) {
+					data.profile_visibility='everyone';
+				}
+				else
+					data.profile_visibility='my_followers';
+
+				if (document.getElementById('Visibilty_yes').checked) {
+					data.email_visibilty='1';
+				}
+				
+				else if (document.getElementById('Visibilty_no').checked) {
+					data.email_visibilty='1';
+				}
+				console.log("Settings Form data is collected is "+data);
+				$.ajax({
+					type:'POST',
+					url : '/settings_form_data',
+					data:JSON.stringify(data),
+					cache: false,
+					contentType: 'application/json',
+					processData:false,
+					success:function(result){
+						if (result=='success') {
+							window.location.href='/dashboard';
+						}
+						else
+							alert("something is wrong with form");
+					}
+				});
+			});
+		});
+	</script>
+</body>
+</html>

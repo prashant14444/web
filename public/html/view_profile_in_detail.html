@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+  .carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+      width: 70%;
+      margin: auto;
+  }
+  p{
+    font-size: 1.6em;
+    font-family: sans-serif;
+  }
+  </style>
+  <link rel="stylesheet" type="text/css" href="/css/view_profile_in_detail.css">
+	<title></title>
+</head>
+<body>
+<div class="container">
+  <!-- <div class="jumbotron" style="height: 100%;padding: 0px;"> -->
+  	<div class="row" style="margin-top: 10px;">
+    <div class="col-xs-3" style="background-color: red;background-image: url('https://www.w3schools.com/bootstrap/img_chania.jpg'); height:180px;width: 180px; border-radius: 50%; ">
+    	<button type="button" class="btn btn-primary btn-lg btn-block" style="margin-top: 210px;">Follow</button>
+    	<button type="button" class="btn btn-primary btn-lg btn-block">Share</button>
+      <button type="button" class="btn btn-primary btn-lg btn-block">Back</button>
+    </div>
+    <div class="col-xs-9 img_and_data_division" style="background-color: white;height:700px;margin-left: 5px;">
+    	<div>
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+          <!-- Indicators -->
+          <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+            <li data-target="#myCarousel" data-slide-to="3"></li>
+          </ol>
+
+          <!-- Wrapper for slides -->
+          <div class="carousel-inner" role="listbox">
+
+            <div class="item active">
+              <img src="https://www.w3schools.com/bootstrap/img_chania.jpg" alt="Chania" width="460" height="345">
+              <div class="carousel-caption">
+                <h3>Chania</h3>
+                <p>The atmosphere in Chania has a touch of Florence and Venice.</p>
+              </div>
+            </div>
+
+            <div class="item">
+              <img src="https://www.w3schools.com/bootstrap/img_chania2.jpg" alt="Chania" width="460" height="345">
+              <div class="carousel-caption">
+                <h3>Chania</h3>
+                <p>The atmosphere in Chania has a touch of Florence and Venice.</p>
+              </div>
+            </div>
+          
+            <div class="item">
+              <img src="https://www.w3schools.com/bootstrap/img_flower.jpg" alt="Flower" width="460" height="345">
+              <div class="carousel-caption">
+                <h3>Flowers</h3>
+                <p>Beautiful flowers in Kolymbari, Crete.</p>
+              </div>
+            </div>
+
+            <div class="item">
+              <img src="https://www.w3schools.com/bootstrap/img_flower2.jpg" alt="Flower" width="460" height="345">
+              <div class="carousel-caption">
+                <h3>Flowers</h3>
+                <p>Beautiful flowers in Kolymbari, Crete.</p>
+              </div>
+            </div>
+        
+          </div>
+
+          <!-- Left and right controls -->
+          <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></p>
+            <span class="sr-only">Previous</p>
+          </a>
+          <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></p>
+            <span class="sr-only">Next</p>
+          </a>
+        </div>
+    	</div>
+    	<div >
+        <p class="text-justify" style="padding-top: 20px;"> About Me: Infuse your life with action. Don't wait for it to happen. Make it happen. Make your own future. Make your own hope. Make your own love. And whatever your beliefs, honor your creator, not by passively waiting for grace to come down from upon high, but by doing what you can to make grace happen... yourself, right now, right down here on Earth.
+        Read more at: https://www.brainyquote.com/topics/yourself</p>
+        <p class="text-justify"> what I am looking For :No matter, whether our salary is 5 lacs per year or 500 crores per year, we know the value of even 5 rupees and the hard work it takes to earn it, without compromising on our self-respect & dignity. If a girl and her parents are just seeing our monetary value rather than the hard work we put in, then “Thank you and Sorry”.</p> 
+        <p class="text-left"> Name: Prashant Kumar</p> 
+        <p class="text-left"> City: Kanpur</p> 
+        <p class="text-left"> State: Uttar Pradesh</p>  
+        <p class="text-justify"> Qualification: B.Tech +M.Tech(Integrated Post Grduate), M.Tech form IIT KharagPur, Phd in Machine Learning and Data Mining, Professor at IIITM Gwalior</p> 
+        <p class="text-left"> Company Name: Tata Consultancy Services</p> 
+        <p class="text-left"> Current Position In Company: Software Developer </p> 
+        <p class="text-left"> Religion: Hindu</p> 
+        <p class="text-left"> Caste: Scheduled Caste (SC)</p> 
+        <p class="text-left">Family Members: One Elder Brothers & Two Elder Sisters, One younger Sister, Parents</p> 
+        <p class="text-left"> Email: pkipg081@gmail.com</p> 
+        <p class="text-left">Contact Number : 8770340281</p>
+        <p class="text-left">Address: Room No 339 AABV-IIITM Gwalior,Morena Link Road Gwalior(474010), Madhya Pradesh</p>   
+      </div>
+    </div>
+    </div>
+<!-- </div> -->
+</div>
+<script type="text/javascript">
+
+function getProfileDetails(currObj){
+  // console.log((currObj.getAttribute('id')));
+  data={};
+  data.id=currObj.getAttribute('id');
+  console.log("data sent to server is "+JSON.stringify(data));
+  $.ajax({
+  success:function(result){
+      {
+        window.location.href = "/profile/"+ data.id;
+      }
+    }
+  });
+}
+
+$('#change_profile_pic').on('submit',function(event){
+   event.preventDefault();
+   var data =new FormData(this);
+   if($('input[name="profile_img"]')[0].files){
+   data.append('profile_img',$('input[name="profile_img"]')[0].files);
+   // console.log($('input[name="profile_img"]')[0].files);
+   }
+$.ajax({
+      type:'POST',
+      url:'/api/upload_profile_image',
+      data:data,
+      cache:false,
+      contentType:false,
+      processData:false,
+      success:function(result){
+          if(result.success=='1'){
+          	console.log(JSON.stringify(result))
+          	document.getElementById('profilepic').src="/public"+result.image;
+          	alert("Successfulily uploaded!");
+            } 
+           else if(result.success=='0'){
+           	alert("Failed!");
+           } 
+           else if(result.size=='large'){
+           	alert("Size Exceeded! Try Again");
+           }                
+        }
+    });  
+   });
+</script>
+</body>
+</html>

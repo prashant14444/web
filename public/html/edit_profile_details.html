@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+	<head>
+	<script src="/script/jquery.js"></script>
+	<link rel="stylesheet" type="text/css" href="/css/dashboard.css">
+</head>
+</head>
+<body>
+<div class="container" style="width: 50%;">
+	<form id="edit_detail_form">
+		<div class="jumbotron">
+		<button  onclick=' window.location.href = "/dashboard" ' type="button" class="btn btn-primary">BACK</button><br>
+	  <div class="form-group">
+	  	<label>Company Name</label>
+    	<input type="text" class="form-control" id="company_name"  placeholder="Enter Company name">
+	  	<label>Job Title</label>
+    	<input type="text" class="form-control" id="job_title" placeholder="Senior SOftware Engineer or Regional Implementation Facilitator">
+    	<label>Job Area</label>
+    	<input type="text" class="form-control" id="job_area" name="jobarea" placeholder="Research">
+    	<label>Phone Number</label>
+    	<input type="text" class="form-control" id="phone_number" placeholder="Ex. +91 8526341289">
+    	<label>Age</label>
+    	<input type="number" min="21" max="60" step="1" class="form-control" id="age"  placeholder="Enter text">
+    	<label>State</label>
+    	<input type="text" class="form-control" id="state"  placeholder="For ex. Uttar Pradesh">
+    	<label>City</label>
+    	<input type="text" class="form-control" id="city"  placeholder="Enter Current City">
+    	<label>Religion</label>
+    	<input type="text" class="form-control" id="religion"  placeholder="Hindu OR Christian">
+    	<label>Caste</label>
+    	<input type="text" class="form-control" id="caste"  placeholder="Enter Your Cast Here">
+    	<label>Current Address</label>
+    	<input type="text" class="form-control" id="address"  placeholder="Type Address Here..">
+    	<label>Sex</label>
+    	<!-- <input type="radio" class="form-control" id="sex"  placeholder="Only m OR f"> -->
+    	<input style="margin-left: 20px;" type="radio" id="male" name="sex" class="custom-control-input">
+ 		<label class="custom-control-label" for="sex">Male</label>
+ 		<input style="margin-left: 20px;" type="radio" id="female" name="sex" class="custom-control-input">
+ 		<label class="custom-control-label" for="sex">Female</label><br>
+	  </div>
+	  <button type="submit" class="btn btn-primary btn-lg btn-block">Save & Continue</button>
+	</div>
+	</form>
+</div>
+
+
+<!-- Scripts satarts from here -->
+<script type="text/javascript" src="/script/dashboard.js"></script>
+<script type="text/javascript">
+	if (getcookie("job_title"))
+	document.getElementById('job_title').value=getcookie("job_title");
+	if (getcookie("company_name"))
+	document.getElementById('company_name').value=getcookie("company_name");
+	if (getcookie("city"))
+	document.getElementById('city').value=getcookie("city");
+	if (getcookie("job_title"))
+	document.getElementById('job_title').value=getcookie("job_title");
+	if (getcookie("job_area"))
+	document.getElementById('job_area').value=getcookie("job_area");
+	if (getcookie("phone_number"))
+	document.getElementById('phone_number').value=getcookie("phone_number");
+	if (getcookie("age"))
+	document.getElementById('age').value=getcookie("age");
+	if (getcookie("state"))
+	document.getElementById('state').value=getcookie("state");
+	if (getcookie("religion"))
+	document.getElementById('religion').value=getcookie("religion");
+	if (getcookie("caste"))
+	document.getElementById('caste').value=getcookie("caste");
+	if (getcookie("address"))
+	document.getElementById('address').value=getcookie("address");
+	if (getcookie("sex")=="f")
+	document.getElementById('female').setAttribute("checked","true");
+	if (getcookie("sex")=="m")
+	document.getElementById('male').setAttribute("checked","true");
+	
+	
+</script>
+<script type="text/javascript">
+function update_cookie_data(cname,cvalue){
+	console.log("updating cookie data ");
+	 document.cookie =cname + "=" + cvalue + ";";
+}
+function update_cookie(result) {
+	console.log("update_cookie is called"); 
+    {
+        console.log("Lets Update Cookie ");
+    	update_cookie_data("emailid", result.email);
+    	update_cookie_data("city", result.city);
+    	update_cookie_data("state", result.state);
+    	update_cookie_data("address", result.address);
+    	update_cookie_data("job_title", result.job_title);
+    	update_cookie_data("job_area", result.job_area);
+    	update_cookie_data("age", result.age);
+    	update_cookie_data("religion", result.religion);
+    	update_cookie_data("caste", result.caste);
+        update_cookie_data("phone_number", result.phone_number);
+    	update_cookie_data("sex", result.sex);
+    	update_cookie_data("company_name", result.company_name);
+    	update_cookie_data("address", result.address);
+    	update_cookie_data("username",result.username);
+    	update_cookie_data("sex",result.sex);
+    }
+}
+
+console.log("script execution started");
+$(document).ready(function(){
+ $('#edit_detail_form').on('submit',function(event){
+ 	console.log("inside the function");
+   	 event.preventDefault();
+	 var company_name=document.getElementById('company_name').value;
+	 var city=document.getElementById('city').value;
+	 var job_title=document.getElementById('job_title').value;
+	 var job_area=document.getElementById('job_area').value;
+	 var phone_number=document.getElementById('phone_number').value;
+	 var age=document.getElementById('age').value;
+	 var state=document.getElementById('state').value;
+	 var religion=document.getElementById('religion').value;
+	 var caste=document.getElementById('caste').value;
+	 var address=document.getElementById('address').value;
+	 var data = {}; 
+	 if (document.getElementById('female').checked) {
+	  data.sex="f";
+	}else if (document.getElementById('male').checked) {
+		data.sex="m";
+	}   	 
+	 data.company_name = company_name; 
+	 data.city =city;
+	 data.job_title =job_title;
+	 data.job_area =job_area;
+	 data.phone_number =phone_number;
+	 data.age =age;
+	 data.state =state;
+	 data.religion =religion;
+	 data.caste =caste;
+	 data.address =address;
+	 console.log(data);
+     $.ajax({
+        type:'POST',
+        url:'/update_db_profile',
+        data:JSON.stringify(data),
+        cache:false,
+        contentType:'application/json',
+        processData:false,
+        success:function(result){
+        if(result=='success'){
+        		console.log("Response Success Receiveed")
+        		update_cookie(data);
+                window.location.href = "/dashboard";
+            }
+            else if(result=='not_activate'){
+              alert("Please activate your account.");
+            }
+            else if(result=='fail'){
+                alert("Credentials are wrong.");
+            }
+        }
+    });
+});
+});
+  </script>
+</body>
+</html>

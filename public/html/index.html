@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <script src="/script/jquery.js"></script>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/css/index.css">
+    <title></title>
+  </head>
+  <body>
+    <div style=" background-image: url('/img/shaadi.jpg');height:500px;background-repeat:no-repeat;background-size:100%">
+      <div class="navbar">
+        <ul>
+          <li>
+            <a href="#">COURSE</a>
+          </li>
+          <li>
+            <a href="#">Home</a>
+          </li>
+          <li>
+            <a href="#">Aboutus</a>
+          </li>
+          <li>
+            <a href="#">Courses</a>
+          </li>
+          <li>
+            <form class="search" action="index.html" method="post">
+              <input class="form_input" style="border-radius:7px;margin: 00px;width:60%;" type="text" name="SearchBox" value="">
+              <label for="SearchBox">Search</label>
+            </form>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div style="width:40%;float:left;margin-left:50px;">
+      <h2>Login Form</h2>
+        <form id="login_frm">
+          <label id="typetxt"><b>Email:<b></label><br/>
+          <input class="frminp" type="text" name="usremail" id="uemail" placeholder="Type email here..." required></input><br/><br/>
+          <b>Password:<b><br/><input class="frminp" type="password" id="psd" name="usrpwd" placeholder="Enter Password here.." required></input><br/>
+          <button class="logbtn" style="text-align: center;">Login!</button>
+        </form>
+
+      </div>
+        <div style="width: 40%;float:right;">
+          <h2>Register</h2>
+          <form  id="registration_form" style="margin-right:50px;"  method="post">
+            <div class="container">
+              <label for="name"><b>Name</b></label>
+              <input type="text" placeholder="Enter Name" id="name" required>
+              <label for="email"><b>Email</b></label>
+              <input type="text" placeholder="Enter Email" id="email" required>
+              <label for="psw"><b>Password</b></label>
+              <input type="password" placeholder="Enter Password" id="password" required>
+              <button type="submit" class="registerbtn">Register</button>
+            </div>
+        </form>
+      </div>
+  </body>
+<script type="text/javascript">
+$(document).ready(function(){
+ $('#registration_form').on('submit',function(event){
+   event.preventDefault();
+     var email=document.getElementById('email').value;
+     var password=document.getElementById('password').value;
+     var name=document.getElementById('name').value;
+     var data = {};
+     data.email = email; 
+     data.password =password;
+     data.name =name;
+     console.log("registration form data is "+ data);
+    $.ajax({
+        type:'POST',
+        url:'/check/user/availabilty',
+        data:JSON.stringify(data),
+        cache:false,
+        contentType:'application/json',
+        processData:false,
+        success:function(result){
+          if(result=='successfully registered'){
+                window.location.href = "/registration_successful";
+              }
+              else if(result=='Already Exist'){
+                alert("This Emailid Already Exist");
+              }
+              else if(result=='fail'){
+                alert("Got into DB Error");
+              }
+            }
+        });
+     });
+});
+</script>
+<script type="text/javascript">
+$(document).ready(function(){
+ $('#login_frm').on('submit',function(event){
+   event.preventDefault();
+     var email=document.getElementById('uemail').value;
+     var pwd=document.getElementById('psd').value;
+     var data = {};
+     data.email = email; 
+     data.password =pwd;
+     // console.log(data);
+    $.ajax({
+        type:'POST',
+        url:'/check/user/credential',
+        data:JSON.stringify(data),
+        cache:false,
+        contentType:'application/json',
+        processData:false,
+        success:function(result){
+          if(result=='success'){
+                  window.location.href = "/dashboard";
+              }
+              else if(result=='not_activate'){
+                alert("Please activate your account.");
+              }
+              else if(result=='fail'){
+                  alert("Credentials are wrong.");
+              }
+              else
+                alert("any other error!");
+            }
+        });
+     });
+});
+</script>
+</html>

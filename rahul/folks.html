@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="\css\folks.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="\script\folks.js"></script>
+<script type="text/javascript" src="\script\folks_jquery.js"></script>
+</head>
+<body onload="showProblem()" onscroll="makevisibleUp()" onresize="myresizefn()">
+<header>
+<div id="maindiv">
+<div id="logodiv">
+<img  id="menupic" src="\image\menu.png">
+<a href="/"><img  id="imglogo" src="\image\logo.png"></a>
+</div>
+<div id="menudiv">
+<ul>
+  <li><a href="/">Home</a></li>
+  <li><a href="https://www.facebook.com/lms.iiitmg">Follow</a></li>
+  <li><a href="/logout">Logout</a></li>
+  <li><a href="/#contact" class="smooth_scroll">Contact</a></li>
+</ul>	
+</div>
+</div>	
+</header>
+<a class="smooth_scroll" href="#maindiv" id="up"><img src="/image/up.png" style="position: fixed;right: 10px;bottom: 0;"></a>
+<div style="clear: both"></div>
+<span>Your Name is:</span><span id="usrName"></span><span><br>
+<span>Your Location is:</span><span id="areaName"></span><span>
+ <div style="width: 100%;margin-top:20px;box-sizing: border-box;">
+    <p id="prbm">Problems</p>
+    <p id="following">Following</p>
+    <p id="suggestion">Suggestion</p>
+</div>
+<div style="clear: both;"></div>
+<div  id="createpostdiv" onclick="myfun()" >
+	<p id="pdiv" style="text-align: center;width: 100%;padding: 20px;"><strong>Click to create post...</strong></p>
+</div>
+<div  id="id001">
+
+	<form style="padding: 30px;" method="post" id="prbmForm" enctype="multipart/form-data" action="">
+		<label><b>Topic:</b></label><span style="color: red;">*</span>
+		<textarea style="height:30px;width: 100%;" class="prbmField" name="prbmTopic"></textarea><br><br>
+		<label><b>Description:</b></label>
+    <span style="color: red;">*</span>
+        <textarea style="height: 100px;width: 100%;" class="prbmField" name="prbmDescription">
+        </textarea>
+        <label><b>Upload image:</b></label>
+        <span style="opacity: 0.8">max size 5MB</span><br>
+        <input type="file" name="prbm_img" style="width: 20%;padding: 20px;border:none;" accept="image/*">
+	<div style="width: 100%;">
+     	<button id="postbtn" type="submit">Post</button>
+		<button id="cancelBtn" onclick="hideNewDiv()" type="reset">Cancel</button>
+		</div>
+    </form>
+    <div id="loader"></div>
+	<div style="clear: both;"></div>
+</div>
+<div id="dynamicParent" style="width:100%;">
+	
+</div>
+<div>
+</div>
+<footer>
+	<p id="ftrtxt">CopyRight @SmartFolks :All Rights Reserved</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+   <link rel="stylesheet" type="text/css" href="\css\login.css">
+   <script type="text/javascript">
+$(document).ready(function(){
+ $('#login_frm').on('submit',function(event){
+   event.preventDefault();
+     var u_email=document.getElementById('uemail').value;
+     var pwd=document.getElementById('psd').value;
+     var data = {};
+     data.usrEmail = u_email; 
+     data.usrPsw =pwd;
+    $.ajax({
+        type:'POST',
+        url:'/check/user/credential',
+        data:JSON.stringify(data),
+        cache:false,
+        contentType:'application/json',
+        processData:false,
+        success:function(result){
+            if(result=='done'){
+                    window.location.href = "/dashboard";
+                }
+                else if(result=='not_activate'){
+                  alert("Please activate your account.");
+                }
+                else if(result=='fail'){
+                    alert("Credentials are wrong.");
+                }
+              }
+        });
+     });
+
+});
+</script>
+</head>
+<body>
+<div class="maindiv" >
+<div class="firstdiv">  
+  <div class="firstsub" >
+  <p style=underline;">Please Enter Credentials..</p>
+  <p id="my_dash">And access different devices of your home.</p>
+<!-- <ul id="my_ul">
+    <li>New feeds</li>
+    <li>Recent Events</li>
+    <li>Suggested Organization</li>
+</ul> -->
+  </div>
+  <img src="/image/cns.png" style="position:absolute;bottom: 0px;width: 90%; ">
+</div>	
+<div id="frmdiv">
+	<form id="login_frm">
+    <label id="typetxt"><b>Email:<b></label><br/>
+    <input class="frminp" type="text" name="usremail" id="uemail" placeholder="Type email here..." required></input><br/><br/>
+    <b>Password:<b><br/><input class="frminp" type="password" id="psd" name="usrpwd" placeholder="Enter Password here.." required></input><br/>
+    <button class="logbtn" style="text-align: center;">Login!</button>
+	</form>
+	<span id="red_text" style="margin-top:10px;">Not Registered?<a href="/register">Create an account</a></span>
+</div>
+</div>
+</body>
+</html>

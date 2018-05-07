@@ -1,0 +1,172 @@
+body{
+  margin:0;
+  padding: 0;
+  background-image:url('/image/full.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+}
+#login_frm,#regi_frm{
+	padding: 50px 25px;
+}
+.frminp{
+	width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+.logbtn{
+    background-color: #43a047;
+    color: white;
+    width: 100%;
+    border: none;
+    padding: 8px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.logbtn:hover{
+	background-color:#2e7d32;
+	box-shadow: 2px 5px 5px 0px #37474f;
+    cursor: pointer;
+}
+/*.firstdiv{
+    width: 50%;
+    float: left;
+    height: 500px;
+    box-sizing: border-box;
+    background-image:url('/image/blus.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}*/
+
+#frmdiv{
+    width: 50%;
+    float: left;
+    border-width: 1px 1px 1px 0px;
+    border-color: #fff;
+    border-style: solid;
+    height: auto;
+    box-sizing:border-box;
+}
+.maindiv{
+   width:80%;
+   margin-left:auto;
+   margin-right:auto;
+   height:500px;
+   margin-top: 50px;
+   box-sizing: border-box; 
+}
+.firstsub{
+  position: absolute;
+  top: 0px; 
+  text-align: center;
+  width: 100%;color: #fff;
+  font-weight: bold;
+  font-size:20px;"
+}
+.detailType{
+  display: block;
+  text-align: center;
+  margin: auto;
+  font-weight: bold;
+}
+
+
+#regi_frm{
+  padding: 15px 10px 10px 10px;
+}
+.frminp{
+  width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+.regbtn{
+    background-color: #43a047;
+    color: white;
+    width: 100%;
+    border: none;
+    padding: 8px;
+    margin-top: 10px;
+    text-align: center;
+}
+.regbtn:hover{
+  background-color:#2e7d32;
+  box-shadow: 2px 5px 5px 0px #37474f;
+  cursor: pointer;
+}
+.firstdiv{
+    width: 50%;
+    float: left;
+    /*background-color: #000;*/
+    height: 500px;
+    box-sizing: border-box;
+    background-image:url('/image/lform.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.8;
+    position: relative;
+    /*height: 100%;*/
+}
+
+#frmdiv{
+    width: 50%;
+    float: left;
+    border-width: 1px 1px 1px 0px;
+    border-color: #fff;
+    border-style: solid;
+     height: 500px;
+     box-sizing:border-box;
+}
+.maindiv{
+   width:80%;
+   margin-left:auto;
+   margin-right:auto;
+   height:500px;
+   margin-top: 50px;
+   box-sizing: border-box; 
+}
+.firstsub{
+  position: absolute;
+  top: 0px; 
+  text-align: center;
+  width: 100%;color: #fff;
+  font-weight: bold;
+  font-size:30px;"
+}
+#my_dash{
+  font-size:20px;
+}
+#my_ul{
+  text-align: left;
+  font-weight: normal;
+  font-size: 15px;
+}
+
+@media only screen and (max-width: 600px){
+
+  body{
+    background:#ccc;
+  }
+#frmdiv{
+  float: none;
+  width: 80%;
+  margin: auto;
+  border-width: 1px 1px 1px 1px;
+}
+.firstdiv{
+    float: none;
+  width: 80%;
+  margin: auto;
+}
+
+
+}
