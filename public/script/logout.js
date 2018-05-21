@@ -24,6 +24,7 @@ function deletecookies() {
 
 function logout(){
 		// delete Cookies Before logging out
+		localStorage.clear();
 		deletecookies();
 		$.ajax({
 	    type:'get',

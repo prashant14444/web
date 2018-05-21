@@ -1,60 +1,187 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <script src="/script/jquery.js"></script>
+    <!-- <script src="/script/jquery.js"></script> -->
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/css/index.css">
-    <title></title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <title>Matrimonial</title>
   </head>
   <body>
-    <div style=" background-image: url('/img/shaadi.jpg');height:500px;background-repeat:no-repeat;background-size:100%">
+    <div class="container-fluid">
+    <div style=" background-image: url('/img/shaadi.jpg');height:500px;background-repeat:no-repeat;background-size:100%; text-align:center;">
       <div class="navbar">
         <ul>
           <li>
-            <a href="#">COURSE</a>
+            <a href="/">Home</a>
           </li>
           <li>
-            <a href="#">Home</a>
+            <button type="button" class="btn btn-link" data-toggle="modal" data-target="#myModal" style="border-radius: 0px;vertical-align: middle; width: 68px; font-size: 1em;padding: 5px;margin: 1px;text-decoration: none;border:0px;padding-top: 2px;">LOGIN</button>
+            <!-- <a href="#" data-target="#myModal">COURSE</a> -->
+          </li>
+          <li>
+            <button type="button" class="btn btn-link" data-toggle="modal" data-target="#registration_modal" style="border-radius: 0px;vertical-align: middle; width: 77px; font-size: 1em;padding: 5px;margin: 1px;text-decoration: none;border:0px;padding-top: 2px;">SIGNUP</button>
+            <!-- <a href="#" data-target="#myModal">COURSE</a> -->
           </li>
           <li>
             <a href="#">Aboutus</a>
           </li>
           <li>
-            <a href="#">Courses</a>
+            <a href="/contact_us">Contact Us</a>
           </li>
           <li>
-            <form class="search" action="index.html" method="post">
-              <input class="form_input" style="border-radius:7px;margin: 00px;width:60%;" type="text" name="SearchBox" value="">
-              <label for="SearchBox">Search</label>
-            </form>
+            <a href="#">Career</a>
           </li>
         </ul>
       </div>
     </div>
-    <div style="width:40%;float:left;margin-left:50px;">
-      <h2>Login Form</h2>
-        <form id="login_frm">
-          <label id="typetxt"><b>Email:<b></label><br/>
-          <input class="frminp" type="text" name="usremail" id="uemail" placeholder="Type email here..." required></input><br/><br/>
-          <b>Password:<b><br/><input class="frminp" type="password" id="psd" name="usrpwd" placeholder="Enter Password here.." required></input><br/>
-          <button class="logbtn" style="text-align: center;">Login!</button>
-        </form>
-
+<div class=" text-center bg-grey" style="margin-top: 0px;">
+  <h1>Success Stories Of Our Users</h1>
+  <div class="row text-center">
+    <div class="col-sm-4">
+      <div class="thumbnail">
+        <img src="http://www.letuspublish.com/wp-content/uploads/2015/11/Photography-of-Indian-Wedding-Couples.jpg" alt="Image Contains 1 Couple" width="400" height="300">
+        <p><strong>GAURAV & RUBAL</strong></p>
+        <p>We met through Shaadi.com while we were looking for our compatible half. We first started chatting on 17 Dec 2017 got engaged on 14 Feb 18 the vary Va...</p>
+        <button id="read_more1" type="button" class="btn btn-primary">Read More..</button>
       </div>
-        <div style="width: 40%;float:right;">
-          <h2>Register</h2>
-          <form  id="registration_form" style="margin-right:50px;"  method="post">
-            <div class="container">
-              <label for="name"><b>Name</b></label>
-              <input type="text" placeholder="Enter Name" id="name" required>
-              <label for="email"><b>Email</b></label>
-              <input type="text" placeholder="Enter Email" id="email" required>
-              <label for="psw"><b>Password</b></label>
-              <input type="password" placeholder="Enter Password" id="password" required>
-              <button type="submit" class="registerbtn">Register</button>
+    </div>
+    <div class="col-sm-4">
+      <div class="thumbnail">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJ7sPeP_Kb_HolV3N2QsuEe7gERreqKijHMhmNHXUtOTqYE7gdUw" alt="Image contains 1couple " width="400" height="300">
+        <p><strong>Sandeep & Sayesha </strong></p>
+        <p>I joint Shaadi.com in June/July 2017. I met my life partner in October. I am from Toronto Canada and my partner was from Manipur India. We got married...</p>
+        <button id="read_more2" type="button" class="btn btn-primary">Read More..</button>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="thumbnail">
+        <img src="http://www.dipakstudios.com/gallery/14594124347.jpeg" alt="Image contains 1couple " width="400" height="300">
+        <p><strong>Prabhjit & Deepinder</strong></p>
+        <p>Hi It was actually so unusual to find someone online. I could not imagine that few reliable people exist like 'us' online. It was difficult to find...</p>
+        <button id="read_more3" type="button" class="btn btn-primary">Read More..</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- footer starts from here -->
+  <footer id="myFooter">
+    <div class="container" style="background-color: #373A48;">
+      <div class="row">
+        <div class="col-sm-3 myCols">
+          <h5>Get started</h5>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <button type="button" class="btn btn-link" data-toggle="modal" data-target="#registration_modal" style="border-radius: 0px;vertical-align: middle; width: 58px; font-size: 1em;padding: 5px;margin: 0px;text-decoration: none;border:0px;padding-top: 2px;">Signup</button><br>
+                <button type="button" class="btn btn-link" data-toggle="modal" data-target="#myModal" style="border-radius: 0px;vertical-align: middle; width: 58px; font-size: 1em;padding: 5px;margin: 0px;text-decoration: none;border:0px;padding-top: 2px;">Login</button>
+              </ul>
+          </div>
+          <div class="col-sm-3 myCols">
+            <h5>About us</h5>
+            <ul>
+              <li><a href="#">Company Information</a></li>
+              <li><a href="/contact_us">Contact us</a></li>
+              <li><a href="/testimonial_read_more">Reviews</a></li>
+            </ul>
+          </div>
+          <div class="col-sm-3 myCols">
+            <h5>Support</h5>
+            <ul>
+              <li><a href="#">FAQ</a></li>
+              <li><a href="#">Help desk</a></li>
+              <li><a href="#">Forums</a></li>
+            </ul>
+          </div>
+          <div class="col-sm-3 myCols">
+            <h5>Legal</h5>
+            <ul>
+              <li><a href="#">Terms of Service</a></li>
+              <li><a href="#">Terms of Use</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+            </ul>
+          </div>
+      </div>
+    </div>
+    <div class="social-networks">
+      <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+      <a href="#" class="facebook"><i class="fa fa-facebook-official"></i></a>
+      <a href="#" class="google"><i class="fa fa-google-plus"></i></a>
+    </div>
+    <div class="footer-copyright">
+      <p>© 2016 Copyright Text </p>
+    </div>
+  </footer>
+  <!-- footer ends here -->
+</div>
+  <div class="container">
+  <!-- Modal For login form -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close text-right"  data-dismiss="modal">&times;</button>
+          <h2 class="modal-title text-center">Login Form</h2> 
+        </div>
+        <div class="modal-body">
+          <form id="login_frm" method="POST">
+            <div class="form-group">
+              <label >User Email</label>
+              <input type="email" class="form-control" name="usremail" id="uemail" placeholder="Type Email here.." required><br>
+              <label >User Password</label>
+              <input type="password" class="form-control" id="psd" name="usrpwd" placeholder="TYpe Password Here.." required>
             </div>
-        </form>
+            <div class="modal-footer">
+          <div class="text-center">
+                <button type="submit" class="btn btn-primary btn-md btn-block">Login</button>
+              </div>
+        </div>
+          </form>
+        </div>
       </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <!-- Modal For login form -->
+  <div class="modal fade" id="registration_modal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close text-right"  data-dismiss="modal">&times;</button>
+          <h2 class="modal-title text-center">Registration Form</h2> 
+        </div>
+        <div class="modal-body">
+          <form id="registration_form" method="POST">
+            <div class="form-group">
+              <label >User Name</label>
+              <input type="text" class="form-control" name="usremail" id="name" placeholder="Type Email here.." required><br>
+              <label >User Email</label>
+              <input type="email" class="form-control" name="usremail" id="email" placeholder="Type Email here.." required><br>
+              <label >User Password</label>
+              <input type="password" class="form-control" name="password" id="password" placeholder="TYpe Password Here.." required>
+            </div>
+            <div class=" modal-footer ">
+              <div class="text-center">
+                <button type="submit" class="btn btn-primary btn-md btn-block">Register</button>
+              </div>
+        </div>
+          </form>
+        </div>
+      </div>      
+    </div>
+  </div>  
+</div>
   </body>
 <script type="text/javascript">
 $(document).ready(function(){
@@ -67,7 +194,7 @@ $(document).ready(function(){
      data.email = email; 
      data.password =password;
      data.name =name;
-     console.log("registration form data is "+ data);
+     // console.log("registration form data is "+ data);
     $.ajax({
         type:'POST',
         url:'/check/user/availabilty',
@@ -119,6 +246,62 @@ $(document).ready(function(){
               }
               else
                 alert("any other error!");
+            }
+        });
+     });
+});
+</script>
+<script type="text/javascript">
+$(document).ready(function(){
+ $('#read_more1').on('click',function(event){
+   event.preventDefault();
+   // alert("The read more 1 is clicked.");
+    $.ajax({
+        type:'get',
+        url:'/testimonial_read_more',
+        cache:false,
+        contentType:'application/json',
+        processData:false,
+        success:function(result){
+              {
+                window.location.href = "/testimonial_read_more";
+              }
+            }
+        });
+     });
+});
+$(document).ready(function(){
+ $('#read_more2').on('click',function(event){
+   event.preventDefault();
+   // alert("The read more 1 is clicked.");
+    $.ajax({
+        type:'get',
+        url:'/testimonial_read_more',
+        cache:false,
+        contentType:'application/json',
+        processData:false,
+        success:function(result){
+              {
+                window.location.href = "/testimonial_read_more";
+              }
+            }
+        });
+     });
+});
+$(document).ready(function(){
+ $('#read_more3').on('click',function(event){
+   event.preventDefault();
+   // alert("The read more 1 is clicked.");
+    $.ajax({
+        type:'get',
+        url:'/testimonial_read_more',
+        cache:false,
+        contentType:'application/json',
+        processData:false,
+        success:function(result){
+              {
+                window.location.href = "/testimonial_read_more";
+              }
             }
         });
      });

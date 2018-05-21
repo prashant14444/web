@@ -18,7 +18,11 @@ app.use(bodyParser.urlencoded({
 }));
  app.use(express.static(__dirname+'/public'))
  app.get('/', function(req, res) {
-     res.sendFile(__dirname+'/public/html/index.html');
+    if(req.session.email)
+      {
+        res.sendFile(__dirname+'/public/html/dashboard.html');
+      }
+    res.sendFile(__dirname+'/public/html/index.html');
  });
 
 //code for file uploading starts here
@@ -70,6 +74,11 @@ app.get('/registration_successful', function(req, res) {
      res.sendFile(__dirname+'/public/html/registration.html');
  });
 
+app.get('/testimonial_read_more', function(req, res) {
+  console.log("/testimonial_read_more is called ");
+     res.sendFile(__dirname+'/public/html/read_more.html');
+ });
+
 //Code for handeling new user registration ends here
 
 // api for handling user credentials is "/check/user/credential"
@@ -78,9 +87,13 @@ app.post("/check/user/credential",function (req,res) {
   // console.log("Password From client side is " + req.body.password);
   users_schema.find({email: req.body.email, password: req.body.password},function(err,result){
     console.log("result array is " + result);
-    req.session.email=result[0].email;
-    console.log("session id is "+ req.session.email);
-    res.send("success");
+    if (result.length>0) {
+      req.session.email=result[0].email;
+      console.log("session id is "+ req.session.email);
+      res.send("success");
+    }
+    else
+      res.send("fail");
   }); 
 })
 //code for settings file starts here
@@ -93,6 +106,14 @@ app.get('/settings', function(req, res) {
   else
     res.redirect('/');
  });
+//code for settings file ends here 
+
+//code for contact us file starts here
+app.get('/contact_us', function(req, res) {
+    console.log("/contact_us link is clicked! ");
+     res.sendFile(__dirname+'/public/html/contact_us.html');
+ });
+//code for contact us ends here
 
 // code for followers list starts here
 app.get('/followers_list', function(req, res) {

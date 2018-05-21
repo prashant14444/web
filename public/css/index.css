@@ -1,5 +1,5 @@
 .navbar{
-  background-color: #3dade5;
+  /*background-color: #3dade5;*/
   border-radius: 5px;
   font-family: sans-serif;
   margin: 5%;
@@ -13,8 +13,14 @@
 .navbar ul li{
   display: inline;
   vertical-align: middle
+  margin-left: 20px;
+  margin-right: 20px;
+  font-size: 1.2em;
 }
 .navbar ul a:hover{
+  background-color: white;
+}
+.navbar ul button:hover{
   background-color: white;
 }
 .navbar ul li a{
@@ -32,18 +38,18 @@
 }
 .form_style{
 }
-form {border: 3px solid #f1f1f1;}
+/*form {border: 3px solid #f1f1f1;}*/
 
-input[type=text], input[type=password] {
+/*input[type=text], input[type=password] {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
     border: 1px solid #ccc;
     box-sizing: border-box;
-}
+}*/
 
-button {
+/*button {
     background-color: #4CAF50;
     color: white;
     padding: 14px 20px;
@@ -55,7 +61,7 @@ button {
 
 button:hover {
     opacity: 0.8;
-}
+}*/
 
 .cancelbtn {
     width: auto;

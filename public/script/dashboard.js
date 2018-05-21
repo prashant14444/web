@@ -16,11 +16,11 @@ function getcookie(cname){
     return "";
 }
 function setcookie(cname,cvalue){
-	console.log("setcookie is called ");
+	// console.log("setcookie is called ");
 	 document.cookie =cname + "=" + cvalue + ";";
 }
 function checkcookie(result) {
-	console.log("checkcookie is called");
+	// console.log("checkcookie is called");
     var cookie=getcookie("emailid");
     if (cookie != "") {
         console.log("Welcome again " + cookie);
@@ -28,7 +28,7 @@ function checkcookie(result) {
     else 
     {
 
-        console.log("Cookie is not set lets set it");
+        // console.log("Cookie is not set lets set it");
         if (result.email)
     	setcookie("emailid", result.email);
         if (result.city)
@@ -62,7 +62,10 @@ function checkcookie(result) {
 }
 
 function load_data(){
-	console.log("load_data is called");
+	// console.log("load_data is called");
+    document.getElementById('no1').innerHTML=1;
+    document.getElementById('no2').innerHTML=2;
+    document.getElementById('no3').innerHTML=3;
 	var data = {};
 	$.ajax({
 	type:'get',
@@ -72,8 +75,8 @@ function load_data(){
 	contentType:'application/json',
 	processData:false,
 	success:function(result){
-		console.log("load_data result is received");
-	      console.log("data recieved at client side " + JSON.stringify(result));
+		// console.log("load_data result is received");
+	 //      console.log("data recieved at client side " + JSON.stringify(result));
 
           // update the side navbar dynamically when usser logs in by updating his/her name, profilepic, email id,name
 	      var profilepic=document.getElementById('profilepic');
@@ -81,7 +84,7 @@ function load_data(){
 
 	      document.getElementById('profile_name').innerHTML= result.name;
 	      document.getElementById('emailid').innerHTML= result.email;
-          console.log("next function is checkcookie");
+          // console.log("next function is checkcookie");
           // also set the cookie to avoid db query an delete it when logging out
 	      checkcookie(result);	         
 		}
